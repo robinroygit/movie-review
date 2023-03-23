@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import React from 'react'
+import Link from 'next/link'
+
 
 
 export async function generateStaticParams(){
@@ -24,9 +26,11 @@ const {movie} = params;
             <h2 className=' text-lg' >{res.release_date}</h2>
             <h2>Runtime: {res.runtime} minutes</h2>
             <h2 className=' text-sm bg-green-600 inline-block my-2 py-2 px-4 rounded-md'>{res.status}</h2>
+                <Link className=' font-mono border p-2 m-2 rounded-md bg-green-400' href={"/"}> <button>go home</button></Link>
                 <Image
                  className='my-12 w-full'
                   src={imagePath + res.backdrop_path}
+                  alt={res.id}
                    width={1000}
                     height={1000}
                     priority
